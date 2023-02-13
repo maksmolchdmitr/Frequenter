@@ -16,7 +16,7 @@ public class Frequenter {
     private long totalCount = 0;
     private int maxSignCount = 1;
     private long maxCount = 0;
-    public Frequenter(FileReader fileReader) {
+    public Frequenter(FileReader fileReader){
         this.fileReader = fileReader;
         calcFrequency();
     }
@@ -30,13 +30,13 @@ public class Frequenter {
         while (fileScanner.hasNext()){
             for(Character s:fileScanner.next().toCharArray()){
                 if(((s >= 'a') && (s <= 'z')) || ((s >= 'A') && (s <= 'Z'))){
-                    totalCount++;
                     if(frequency.containsKey(s)){
                         frequency.replace(s, frequency.get(s)+1);
-                        maxCount = Math.max(frequency.get(s), maxCount);
                     }else {
                         frequency.put(s, 1L);
                     }
+                    maxCount = Math.max(frequency.get(s), maxCount);
+                    totalCount++;
                 }
             }
         }
