@@ -12,8 +12,11 @@ public class Main {
             System.out.println("Enter file path where you want to write statistic");
             String outFilepath = scanner.next();
             frequenter.printStatistics(new PrintStream(outFilepath));
+            System.out.println("Successfully has written");
         } catch (FileNotFoundException e) {
             System.out.println("File is not found!");
+        } catch (Exception e){
+            System.out.println("Unknown error: "+e);
         }
     }
 }
